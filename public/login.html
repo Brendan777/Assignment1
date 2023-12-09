@@ -3,16 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Trendy Store</title>
+  <title>Trendy Store - Login</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <script src="./products.js"></script> <!-- Include a JavaScript file to load product information -->
-  
-
 </head>
-
 <body>
 
 <!-- Navigation -->
@@ -28,8 +24,8 @@
     <div class="navbar-header">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
+        <span class="icon-bar"></span>
+      </div>
       <a class="navbar-brand" href="#">Logo</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
@@ -47,19 +43,35 @@
 
 <!-- Main Content -->
 <div class="container">    
-    <h1 style="font-size: 60px;">Products</h1>
+    <h1 style="font-size: 60px;">Login</h1>
   <br>
   <br>
-  <h3 id="errMsg" style="color: #ff2e2e;"></h3>
-  
-  <!-- PRODUCT CARDS -->
-  <form action="/purchase_login" method="POST" name="qty_form" class="qty_form">
-    <div class="row">
-      <!-- Add your product cards here -->
-    </div>
-    <input type="submit" value="Purchase" class="btn btn-primary">
-  </form>
+  <div id="error"></div>
+  <div class="login-container">
+    <form action="/process_login" method="POST"> <!-- Updated action attribute -->
+      <div id="hiddenFields"></div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" class="form-control" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+    <!-- <p>Don't have an account? <a href="register.html">Register here</a></p> -->
+    <br/>
+    <p>Don't have an account?  
+      <form action="/forward_to_register_page" method="POST"> 
+        <div id="hiddenFields2"></div>
+        <button type="submit" class="btn btn-primary">Register here</button>
+      </form>
+    </p>
+  </div>
 </div>
-<script src="./products_display.js"></script>
+
+<script src="login.js"></script> 
+
 </body>
 </html>
